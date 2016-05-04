@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from pyserial import *
+sys.path.append("/usr/local/lib/python3.4/dist-packages")
+sys.path.append("/usr/local/lib/python3/dist-packages")
+from serial import *
 
 class SerialSender:
 
@@ -18,7 +20,7 @@ class SerialSender:
     def run(self, args, args2):
         while(True):
             number, protocol = self.message_queue.get(True)
-            for i in range(0, number):
+            for i in range(0, number): #todo timer to send pacekts in a certaine timing
                 if not self.debug:
                     self.port.write("ping") #todo send with the right protocol
                 else:
