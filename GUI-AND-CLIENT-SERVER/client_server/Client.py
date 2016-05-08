@@ -7,8 +7,15 @@ import pickle
 
 
 class Client:
+    """This client transmits commands from the GUI to the server.
+
+    """
 
     def __init__(self, name, port):
+        """
+        @param name The name can either be a hostname or an ip adress
+        @param port The port on wich the server is running.
+        """
         # Create a TCP/IP socket
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -16,6 +23,10 @@ class Client:
         self.server_address = (name, port)
 
     def connect(self):
+        """Establishes the connection to the server.
+
+        :return: True if connected, False if an error occured
+        """
         print('connecting to %s port %s' % self.server_address)
         try:
             self.sock.connect(self.server_address)
@@ -24,29 +35,22 @@ class Client:
             print("Connection refused", file=sys.stderr)
             return False
 
-    def send_message(self, packet_number, protocol):
-        message = (packet_number, protocol)
-        print('sending "%d, %d"' % (packet_number, protocol))
+    def send_message(self, packet_number, protocol, time):
+        """Sends the passed values to the connected server.
+
+        :param packet_number: Number of serials packets that should be sended
+        :param protocol: Type of serial protocol. Defined in the PiServer class.
+        :param time: time between sending of the serial packets.
+        :return: No return
+        """
+        message = (packet_number, protocol, time)
+        print('sending "%d, %d, %f"' % (packet_number, protocol, time))
         self.sock.sendall(pickle.dumps(message))
 
-    def send_test_message(self):
-        try:
-            # Send data
-            message = 'This is the message.  It will be repeated.'
-            print ('sending "%s"' % message)
-            self.sock.sendall(message)
-
-            # Look for the response
-            amount_received = 0
-            amount_expected = len(message)
-
-            while amount_received < amount_expected:
-                data = self.sock.recv(16)
-                amount_received += len(data)
-                print('received "%s"' % data)
-        except:
-            print('Error in send test', file=sys.stderr)
-
     def close_socket(self):
+        """Closes the connection to the server.
+
+        :return: No return
+        """
         print('closing socket')
         self.sock.close()

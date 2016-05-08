@@ -48,8 +48,9 @@ class ConnectButon:
 class SendButton:
     """class for a Button"""
 
-    def __init__(self, name, window, entry_field_number_of_packet, config, scroll_choice,position):
+    def __init__(self, name, window, entry_field_number_of_packet, entry_field_time_of_packet, config, scroll_choice,position):
         self.nb_packet = entry_field_number_of_packet
+        self.time_packet = entry_field_time_of_packet
         self.config = config
         self.position=position
         self.scrollChoice = scroll_choice
@@ -64,6 +65,7 @@ class SendButton:
     def send(self):
         self.config.set_protocole(self.scrollChoice.getChoice())
         self.config.set_packet_number(self.nb_packet.get_int_value())
+        self.config.set_packet_time(self.time_packet.get_float_value())
         self.config.send_mes()
         print("data send")
 

@@ -11,13 +11,28 @@ I2C = 2
 
 
 class Server:
+    """This is the server which waits for connection with the client and accepts the transmitted commands.
+
+    """
+
     def __init__(self, name, port, message_queue):
+        """
+
+        :param name: Server name or ip
+        :param port: Port on which the server should be opened
+        :param message_queue: Synchronized message queue to communicate which the SerialSender class
+        :return:
+        """
         # Create a TCP/IP socket
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_address = (name, port)
         self.message_queue = message_queue
 
     def listen(self):
+        """Starts up the server and waits for connection of a client.
+        Incoming message are saved in the message queue. The actual sending of the packets is done by another thread
+        from the SerialSender class.
+        """
         print('starting up on %s port %s' % self.server_address)
         self.sock.bind(self.server_address)
         self.sock.listen(1)
@@ -29,16 +44,16 @@ class Server:
                 print('client connected:', client_address)
                 while True:
                     data = connection.recv(4096)
-                    (packet, protocol) = pickle.loads(data)
-                    print('received "%d %d"' % (packet, protocol))
+                    (packet, protocol, time) = pickle.loads(data)
+                    print('received "%d %d %f"' % (packet, protocol, time))
                     if data:
-                        self.message_queue.put((packet, protocol))  # add message to buffer queue
+                        self.message_queue.put((packet, protocol, time))  # add message to buffer queue
                     else:
                         break
             except socket.error:
                 print("Connection broke", file=sys.stderr)
             except EOFError:
-                pass  # TODO this is not the most beautiful way to do it. Normaly the stream should be closed before pickle
+                pass #to avoid false EOF errors from pickle
             finally:
                 print("client disconnected")
                 connection.close()

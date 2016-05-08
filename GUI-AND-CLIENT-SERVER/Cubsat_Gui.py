@@ -30,9 +30,9 @@ connect_button = ConnectButon("Connect", win, entry_ip, entry_port, config_serve
 frame_protocol_config = FramePerso("Protocol Configuration",win,RIGHT,60,60)
 list_widgets.append(frame_protocol_config)
 entry_packet_number = EntryText("Nombre de paquet", frame_protocol_config, "Number of packets", TOP, 5, 15) 
-entry_packet_number = EntryText("temps entre les packets", frame_protocol_config, "Time between packets", TOP, 5, 15) 
+entry_packet_time = EntryText("temps entre les packets", frame_protocol_config, "Time between packets", TOP, 5, 15)
 scroll_choice_protocol = scrollField("Protocol Choice",frame_protocol_config,TOP,["SPI", "UART", "I2C"])  # choose a protocol
-send_button = SendButton("Send", frame_protocol_config, entry_packet_number, config_server, scroll_choice_protocol,BOTTOM)
+send_button = SendButton("Send", frame_protocol_config, entry_packet_number, entry_packet_time, config_server, scroll_choice_protocol,BOTTOM)
 
 #TODO : ADD LABEL % LOST PACK 
 

@@ -3,11 +3,13 @@
 
 from PiServer import Server
 from SerialSender import SerialSender
-#from concurrent.futures.thread import start_new_thread
-#from threading import Thread
-import threading
 import _thread
 from queue import Queue
+
+
+"""
+    Opens up a server on a specific port
+"""
 
 message_queue = Queue()
 

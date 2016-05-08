@@ -9,6 +9,7 @@ class ConfigurationServer:
         self.port = -1
         self.client = None
         self.protocol = -1
+        self.time = -1
         self.packet_number = 0
 
     def get_ip(self):
@@ -40,6 +41,9 @@ class ConfigurationServer:
     def get_packet_number(self):
         return self.packet_number
 
+    def set_packet_time(self, time):
+        self.time = time
+
     # demander à Marc de faire verifier le retour de connecter pour etre sur que ça a marché
     def connect(self):
         print(self.ip)
@@ -56,6 +60,6 @@ class ConfigurationServer:
 
     def send_mes(self):
         if self.client is not None:
-            self.client.send_message(self.packet_number, self.protocol)
+            self.client.send_message(self.packet_number, self.protocol, self.time)
             # print("data send")
 
