@@ -13,7 +13,7 @@ from ButtonRadio import *
 #main window 
 win = Tk()
 win.title('Cubsat interface')
-win.geometry('{}x{}'.format(500, 450))
+win.geometry('{}x{}'.format(430, 470))
 win.resizable(width=FALSE, height=FALSE)  # not allowed to change window size
 
 #list which contains all widgets, allowed to show some widgets when we are connected,and not before
@@ -42,19 +42,19 @@ list_widgets.append(frame_saleae_config)
 
 entry_analog_channel = SpinboxClass("Number Of analog channels", frame_saleae_config,0,8 ,TOP,2,2)
 entry_digital_channel = SpinboxClass("Number Of digital channels", frame_saleae_config,0,8 ,TOP,2,2)
-entry_analog_sample_rate= SpinboxClass("Analog Sample Rate", frame_saleae_config, 4e6,100e9 ,TOP,2,2) 
-entry_digital_sample_rate= SpinboxClass("Digital Sample Rate", frame_saleae_config, 4e6, 100e9,TOP,2,2) 
+entry_analog_sample_rate= SpinboxClass("Analog Sample Rate(MS/s)", frame_saleae_config, 4e6,100e9 ,TOP,2,2) 
+entry_digital_sample_rate= SpinboxClass("Digital Sample Rate(S/s)", frame_saleae_config, 100, 500,TOP,2,2) 
 
 scroll_choice_trigger =  scrollField("Trigger Choice",frame_saleae_config,TOP,["Rising Edge", "Falling Edge"]) #choose trigger, ajouter plus tard les deux options manquantes
 
-entry_capture_time_and_sample_number= SpinboxClass("", frame_saleae_config, 0, 100,BOTTOM,1,1)
-field_length_capture_to_edit= ButtonRadio("field_capture",frame_saleae_config,LEFT,entry_capture_time_and_sample_number,["Capture Time(seconds) ","Sample Number"],[(0,100),(4e6,100e9)])
+entry_capture_time_and_sample_number= SpinboxClass("", frame_saleae_config, 0, 100,TOP,1,1)
+field_length_capture_to_edit= ButtonRadio("field_capture",frame_saleae_config,TOP,entry_capture_time_and_sample_number,["Capture Time(seconds) ","Sample Number"],[(0,100),(4e6,100e9)])
 
 
 
 
 #send 
-#send_saleae_conf= SendSaleaeButton("Send",frame_saleae_config,BOTTOM,entry_analog_channel ,entry_digital_channel,entry_analog_sample_rate,entry_digital_sample_rate,scroll_choice_trigger,field_length_capture_to_edit)
+send_saleae_conf= SendSaleaeButton("Send",frame_saleae_config,BOTTOM,entry_analog_channel ,entry_digital_channel,entry_analog_sample_rate,entry_digital_sample_rate,scroll_choice_trigger,field_length_capture_to_edit)
 
 win.mainloop() #run
 

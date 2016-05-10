@@ -88,11 +88,75 @@ class SendSaleaeButton:
         if type(window) is FramePerso:
             self.b1 = Button(window.getFrame())
         else:
-            self.b1 = Button(window.getFrame())
+            self.b1 = Button(window)
         self.b1.config(text=name, command=self.send)
-        self.b1.pack(side=position, padx=5, pady=25) 
+        self.b1.pack(side=position, padx=1, pady=1) 
 
         
     def send(self):
-        saleae.demo()
+        s = saleae.Saleae()#by defaut, send to localhost and port 10429  
+        print("Saleae connected.")
+        try:
+            s.set_performance(saleae.PerformanceOption.Full)
+            print("Set performance to full.")
+        except s.CommandNAKedError:
+            print("Could not set performance.") #better to draw a error window 
+
+        devices = s.get_connected_devices()
+        print("Connected devices:")
+
+        for device in devices:
+            print("\t{}".format(device))
+
+        digital=[ w for w in range(self.Nb_dig_chan.getValue())]
+        analog= [w for w in range(self.Nb_AnaLog_chan.getValue())]
+        #print("digital channels :")
+        #print(digital)
+        #print("analog channels")
+        #print(analog)
+
+        s.set_active_channels(digital, analog)
+
+        digital, analog = s.get_active_channels()
+        print("Reading back active channels:")
+        print("\tdigital={}\n\tanalog={}".format(digital, analog))
+
+        rate = s.set_sample_rate_by_minimum(self.Dig_sample_rate.getValue(),self.Analog_sample_rate.getValue())
+        print("\tRate set to", rate)
+
+        trig= saleae.Trigger.NoTrigger
+        if self.triggerChoice.getChoice() == "Rising Edge":
+            trig =  saleae.Trigger.High
+            print("Trigger ready set to high")
+        else:
+            trig= saleae.Trigger.Low
+            print("Trigger ready set to low")
+
+
+        #set trigger for active digital channels #FTODO IXER CETTE SALOPERIE
+        try:
+            if len(digital)>0:
+                channels=[ trig for w in digital]
+                print(channels)
+                s.set_triggers_for_all_channels(channels)
+        except  s.ImpossibleSettings:
+            print("Could not set Trigger")
+        except s.CommandNAKedError:
+            print("FIX THIS F*** BUG ")
+
+        print("TIGGER set to : {} ".format(trig))
+
+        print("choice {}" .format(self.cap_time_or_sample_number.getChoice()))
         
+        if int(str(self.cap_time_or_sample_number.getChoice()))==0:
+            print("capture with Time : {} seconds" .format(self.cap_time_or_sample_number.getValueOFAssociateField()))
+            s.set_capture_seconds(self.cap_time_or_sample_number.getValueOFAssociateField())
+        elif int(str(self.cap_time_or_sample_number.getChoice()))==1:
+            print("Capture with sample number : {}" .format(self.cap_time_or_sample_number.getValueOFAssociateField()))
+            s.set_num_samples(self.cap_time_or_sample_number.getValueOFAssociateField())
+        else : 
+            print("NO CHOICE ")
+
+        s.capture_start_and_wait_until_finished() #start capture and wait 
+
+        #need to export datas and treat them

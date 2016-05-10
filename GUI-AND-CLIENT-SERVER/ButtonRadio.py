@@ -29,6 +29,10 @@ class ButtonRadio:
 
 	def getChoice(self):
 		return self.value.get()
+
+	def getValueOFAssociateField(self):
+		return self.associate_field.getValue()
+
 		
 		
 		

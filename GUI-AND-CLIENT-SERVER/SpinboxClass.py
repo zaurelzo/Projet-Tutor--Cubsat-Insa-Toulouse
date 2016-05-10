@@ -13,7 +13,7 @@ class SpinboxClass:
 		self.position=position
 		if type(window) is FramePerso :
 			self.label=Label(window.getFrame(),text=name)
-			self.spin= Spinbox(window.getFrame(), from_=minValue, to=maxValue,command=self.checkValue)
+			self.spin= Spinbox(window.getFrame(), from_=minValue, to=maxValue)
 		else:
 			self.label=Label(window,text=name)
 			self.spin= Spinbox(window, from_=minValue, to=maxValue,command=self.checkValue)
@@ -36,7 +36,7 @@ class SpinboxClass:
 	def changeConfig(self,min,max):
 		self.spin.config(from_=min,to=max)
 
-	def checkValue():
-		if self.spin.get()>self.maxValue:
-			self.spin.icursor(self.maxValue-self.minValue-1)
+	#def checkValue():
+	#	if self.spin.get()>self.maxValue:
+	#		self.spin.icursor(self.maxValue-self.minValue-1)
 		
