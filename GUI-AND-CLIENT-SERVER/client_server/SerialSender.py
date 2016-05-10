@@ -3,10 +3,9 @@
 
 import sys
 
-sys.path.append("/usr/local/lib/python3.4/dist-packages")
-sys.path.append("/usr/local/lib/python3/dist-packages")
-from serial import *
-
+import serial
+import os
+import time
 
 ##
 # This class runs a thread which sends the serial packets.
@@ -18,13 +17,14 @@ class SerialSender:
     #
     # @param message_queue The synchronized message queue to communicate with the Server class
     def __init__(self, message_queue):
+        print("SerialSender started")
 
         os.system("stty -F /dev/ttyAMA0 115200") #configs the system to allow use of tty
         os.system("exec 9> /dev/ttyAMA0")
 
         self.message_queue = message_queue
         try:
-            self.port = Serial("/dev/ttyAMA0", baudrate=115200, timeout=1.0)
+            self.port = serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=1.0)
             self.debug = False
         except OSError:
             print(
@@ -43,12 +43,15 @@ class SerialSender:
 
             last_packet_time = 0
             sended_packets = 0
+            print("serial sender got %d %d %d", (number, protocol, time_between))
             while sended_packets < number:
                 if time.time() > last_packet_time + (time_between / 1000):
                     if not self.debug:
-                        if protocol == "UART":
-                            self.port.write("ping")
-                        elif protocol == "SPI":
+                        if protocol == 0:
+                            print("send UART")
+                            self.port.write(bytes("test", 'UTF-8'))
+                        elif protocol == 1:
+                            print("send SPI")
                             os.system("./spidev_test -D /dev/spidev0.0")
                         else: #I2C
                             pass #TODO
