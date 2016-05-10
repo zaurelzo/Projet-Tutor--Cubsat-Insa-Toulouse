@@ -19,6 +19,10 @@ class SerialSender:
 
         :param message_queue: The synchronized message queue to communicate with the Server class
         """
+
+        os.system("stty -F /dev/ttyAMA0 115200") #configs the system to allow use of tty
+        os.system("exec 9> /dev/ttyAMA0")
+
         self.message_queue = message_queue
         try:
             self.port = Serial("/dev/ttyAMA0", baudrate=115200, timeout=1.0)
@@ -41,9 +45,14 @@ class SerialSender:
             last_packet_time = 0
             sended_packets = 0
             while sended_packets < number:
-                if time.time() > last_packet_time + time_between:
+                if time.time() > last_packet_time + (time_between / 1000) :
                     if not self.debug:
-                        self.port.write("ping")  # todo send the right packet type
+                        if protocol == "UART":
+                            self.port.write("ping")
+                        elif protocol == "SPI":
+                            os.system("./spidev_test -D /dev/spidev0.0")
+                        else: #I2C
+                            pass #TODO
                     else:
                         print("pseudo sended a serial packet", file=sys.stderr)
                     last_packet_time = time.time()

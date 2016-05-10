@@ -65,7 +65,7 @@ class SendButton:
     def send(self):
         self.config.set_protocole(self.scrollChoice.getChoice())
         self.config.set_packet_number(self.nb_packet.get_int_value())
-        self.config.set_packet_time(self.time_packet.get_float_value())
+        self.config.set_packet_time(self.time_packet.get_int_value())
         self.config.send_mes()
         print("data send")
 
