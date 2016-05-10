@@ -8,17 +8,16 @@ sys.path.append("/usr/local/lib/python3/dist-packages")
 from serial import *
 
 
+##
+# This class runs a thread which sends the serial packets.
 class SerialSender:
-    """This class runs a thread which sends the serial packets.
 
-    """
-
+    ##
+    # Tries to use the ttyAMA0 connection. If it is not availible the class will run in a debug mode which is
+    # not actually sending packages.
+    #
+    # @param message_queue The synchronized message queue to communicate with the Server class
     def __init__(self, message_queue):
-        """Tries to use the ttyAMA0 connection. If it is not availible the class will run in a debug mode which is
-        not actually sending packages.
-
-        :param message_queue: The synchronized message queue to communicate with the Server class
-        """
 
         os.system("stty -F /dev/ttyAMA0 115200") #configs the system to allow use of tty
         os.system("exec 9> /dev/ttyAMA0")
@@ -33,19 +32,19 @@ class SerialSender:
                 file=sys.stderr)
             self.debug = True
 
+    ##
+    # The thread function which sends the packets.
+    #
+    # @param args: Not used, only needed because of python standards
+    # @param args2: Not used, only needed because of python standards
     def run(self, args, args2):
-        """The thread function which sends the packets.
-
-        :param args: Not use only needed because of python standards
-        :param args2: Not use only needed because of python standards
-        """
         while True:
             number, protocol, time_between = self.message_queue.get(True)
 
             last_packet_time = 0
             sended_packets = 0
             while sended_packets < number:
-                if time.time() > last_packet_time + (time_between / 1000) :
+                if time.time() > last_packet_time + (time_between / 1000):
                     if not self.debug:
                         if protocol == "UART":
                             self.port.write("ping")

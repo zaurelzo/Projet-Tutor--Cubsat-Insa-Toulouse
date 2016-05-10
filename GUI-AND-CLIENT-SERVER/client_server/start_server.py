@@ -7,9 +7,8 @@ import _thread
 from queue import Queue
 
 
-"""
-    Opens up a server on a specific port
-"""
+##
+# Opens up a server on a specific port
 
 message_queue = Queue()
 
