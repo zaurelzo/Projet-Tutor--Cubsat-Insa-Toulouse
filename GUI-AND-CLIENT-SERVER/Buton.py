@@ -9,7 +9,15 @@ from saleae import *  #use saleae analyser
 
 
 class ConnectButon:
-    """class for a Buton"""
+    
+    ##
+    #  constructor
+    #@param name : window's name
+    #@param window : main window 
+    #@param EntryField : IP Field 
+    #@param EntryFieldPort :Port Field
+    #@param config Server : configuration
+    #@param widget_list : widgets to show after connection
 
     def __init__(self, name, window, EntryFieldIP, EntryFieldPort, config,widget_list):
         self.ip_field = EntryFieldIP
@@ -23,7 +31,8 @@ class ConnectButon:
         self.b1.config(text=name, command=self.connect)
         self.b1.pack()  # draw button
 
-    # TODO :faire une regexp pour verfifier Si l'IP  ou le port est valide
+    ##
+    #  Connect Read connection paramaters from  
     def connect(self):
         self.config.set_ip(self.ip_field.get_value())
         self.config.set_port(int(self.port_field.get_value()))
@@ -33,7 +42,8 @@ class ConnectButon:
             for elt in self.widget_list:#show frames
                 elt.show()
 
-
+    ##
+    # disconnect
     def disconnect(self):
         self.b1.config(text="Connect", command=self.connect)
         self.config.disconnect()
@@ -136,7 +146,7 @@ class SendSaleaeButton:
         #set trigger for active digital channels #FTODO IXER CETTE SALOPERIE
         try:
             if len(digital)>0:
-                channels=[ trig for w in digital]
+                channels=[ 1 for w in digital]
                 print(channels)
                 s.set_triggers_for_all_channels(channels)
         except  s.ImpossibleSettings:
