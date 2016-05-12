@@ -131,8 +131,13 @@ class SendSaleaeButton:
     ##
     #send button : allowed to validate analyser configuration
     def send(self):
-        s = saleae.Saleae()  # by defaut, send to localhost and port 10429
-        print("Saleae connected.")
+        try:
+            s = saleae.Saleae()  # by defaut, send to localhost and port 10429
+            print("Saleae connected.")
+        except ConnectionRefusedError:
+            print("Saleae seems to be not running, please start it and try again", file=sys.stderr)
+            return
+
         try:
             s.set_performance(saleae.PerformanceOption.Full)
             print("Set performance to full.")
@@ -152,14 +157,18 @@ class SendSaleaeButton:
         #print("analog channels")
         #print(analog)
 
-        s.set_active_channels(digital, analog)
+        try:
+            s.set_active_channels(digital, analog)
+        except Exception:
+            print("Problem with Saleae API, check if it is running and the analyzer is connected", file=sys.stderr)
+            return
 
         digital, analog = s.get_active_channels()
         print("Reading back active channels:")
         print("\tdigital={}\n\tanalog={}".format(digital, analog))
 
-        rate = s.set_sample_rate_by_minimum(self.Dig_sample_rate.getValue(), self.Analog_sample_rate.getValue())
-        print("\tRate set to", rate)
+        #rate = s.set_sample_rate_by_minimum(self.Dig_sample_rate.getValue(), self.Analog_sample_rate.getValue())
+        #print("\tRate set to", rate)
 
         trig = saleae.Trigger.NoTrigger
         if self.triggerChoice.getChoice() == "Rising Edge":
@@ -201,3 +210,5 @@ class SendSaleaeButton:
 
         #need to export datas and treat them
         s.export_data("/home/marc/testLogic/test") #try export_dat2 sinon , faire en sorte d'ouvrir le fichier depuis le software puis de l'analyser  
+        #s.export_data("/home/marc/testLogic/test")
+        s.save_to_file("/home/marc/testLogic/test2")
