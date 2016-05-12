@@ -9,7 +9,15 @@ import traceback
 
 
 class ConnectButon:
-    """class for a Buton"""
+    
+    ##
+    #  ConnectButon constructor 
+    #@param name : window's name
+    #@param window : main window 
+    #@param EntryField:  IP Field 
+    #@param EntryFieldPort: Port Field
+    #@param config Server  :configuration
+    #@param widget_list : widgets to show after connection
 
     def __init__(self, name, window, EntryFieldIP, EntryFieldPort, config, widget_list):
         self.ip_field = EntryFieldIP
@@ -23,7 +31,8 @@ class ConnectButon:
         self.b1.config(text=name, command=self.connect)
         self.b1.pack()  # draw button
 
-    # TODO :faire une regexp pour verfifier Si l'IP  ou le port est valide
+    ##
+    #  read connection paramaters from config object that pass to the constructor  
     def connect(self):
         self.config.set_ip(self.ip_field.get_value())
         self.config.set_port(int(self.port_field.get_value()))
@@ -33,7 +42,8 @@ class ConnectButon:
             for elt in self.widget_list:  # show frames
                 elt.show()
 
-
+    ##
+    # disconnect
     def disconnect(self):
         self.b1.config(text="Connect", command=self.connect)
         self.config.disconnect()
@@ -41,13 +51,22 @@ class ConnectButon:
         for elt in self.widget_list:
             elt.hide()
 
+    ## 
+    # is connected indicates if we established the connection
     def isConnected(self):
         return self.is_connected
 
 
 class SendButton:
     """class for a Button"""
-
+    ##
+    #sendButton Constructor
+    #@param name : window's name
+    #@param window : main window 
+    #@param entry_field_number_of_packet  :field for number of packets
+    #@param entry_field_time_of_packet : field for time between packet
+    #@param config : server configuration object 
+    #@param scroll_choice : field for protocol choice (ie uart, spic, i2c)
     def __init__(self, name, window, entry_field_number_of_packet, entry_field_time_of_packet, config, scroll_choice,
                  position):
         self.nb_packet = entry_field_number_of_packet
@@ -63,6 +82,8 @@ class SendButton:
         self.b1.config(text=name, command=self.send)
         self.b1.pack(side=position, padx=5, pady=5)  # bidouillage pour afficher à la bonne position
 
+    ##
+    #send send protocol configuration to the raspberry
     def send(self):
         self.config.set_protocole(self.scrollChoice.getChoice())
         self.config.set_packet_number(self.nb_packet.get_int_value())
@@ -70,6 +91,8 @@ class SendButton:
         self.config.send_mes()
         print("data send")
 
+    ##
+    #show the button if it is hidding
     def show(self):
         self.b1.pack(side=self.position, padx=5, pady=15)  # bidouillage pour afficher à la bonne position
 
@@ -77,8 +100,18 @@ class SendButton:
 class SendSaleaeButton:
     """docstring for SendSaleaeButton"""
 
-    def __init__(self, name, window, position, Nb_AnaLog_chan, Nb_dig_chan, Analog_sample_rate, Dig_sample_rate,
-                 triggerChoice, cap_time_or_sample_number):
+    ##
+    #SendSaleaeButton construction
+    #@param name : window's name
+    #@param window:  main window
+    #@param position : button position(TOP,LEFT ,RIGHT ,BOTTOM)
+    #@param Nb_AnaLog_chan : Field for number of analog channels
+    #@param Nb_dig_chan Field:  for number of digital channels
+    #@param Analog_sample_rate : Field for analog sample rate 
+    #@param Dig_sample_rate: Field for digital sample rate 
+    #@param triggerChoice : Field for trigger choice (rising_edge, failing_edge)
+    #@param cap_time_or_sample_number : FIeld for capture time or sample number(interpretation of this filed depends of the user choice)
+    def __init__(self, name, window, position, Nb_AnaLog_chan, Nb_dig_chan, Analog_sample_rate, Dig_sample_rate, triggerChoice, cap_time_or_sample_number):
         self.name = name
         self.Nb_AnaLog_chan = Nb_AnaLog_chan
         self.Nb_dig_chan = Nb_dig_chan
@@ -95,6 +128,8 @@ class SendSaleaeButton:
         self.b1.pack(side=position, padx=1, pady=1)
 
 
+    ##
+    #send button : allowed to validate analyser configuration
     def send(self):
         try:
             s = saleae.Saleae()  # by defaut, send to localhost and port 10429
@@ -146,6 +181,7 @@ class SendSaleaeButton:
 
         #set trigger for active digital channels #FTODO IXER CETTE SALOPERIE
         try:
+
             if len(digital) > 0:
                 channels = [trig for w in digital]
                 print(channels)
@@ -173,5 +209,5 @@ class SendSaleaeButton:
         s.capture_start_and_wait_until_finished()  #start capture and wait
 
         #need to export datas and treat them
-        s.export_data("/home/marc/testLogic/test", [0, 1], format='VCD')
+        s.export_data("/home/marc/testLogic/test") #try export_dat2 sinon , faire en sorte d'ouvrir le fichier depuis le software puis de l'analyser  
         s.save_to_file("/home/marc/testLogic/test2.logicdata")
