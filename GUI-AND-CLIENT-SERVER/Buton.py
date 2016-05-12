@@ -6,14 +6,15 @@ from tkinter import *
 from FramePerso import *
 from saleae import saleae  # use saleae analyser
 import traceback
+import time
 
 
 class ConnectButon:
-    
+
     ##
-    #  ConnectButon constructor 
+    #  ConnectButon constructor
     #@param name : window's name
-    #@param window : main window 
+    #@param window : main window
     #@param EntryField:  IP Field 
     #@param EntryFieldPort: Port Field
     #@param config Server  :configuration
@@ -62,7 +63,7 @@ class SendButton:
     ##
     #sendButton Constructor
     #@param name : window's name
-    #@param window : main window 
+    #@param window : main window
     #@param entry_field_number_of_packet  :field for number of packets
     #@param entry_field_time_of_packet : field for time between packet
     #@param config : server configuration object 
@@ -208,6 +209,7 @@ class SendSaleaeButton:
 
         s.capture_start_and_wait_until_finished()  #start capture and wait
 
+        time.sleep(5)
         #need to export datas and treat them
-        s.export_data("/home/marc/testLogic/test") #try export_dat2 sinon , faire en sorte d'ouvrir le fichier depuis le software puis de l'analyser  
+        s.export_data("/home/marc/testLogic/test", [0,1]) #try export_dat2 sinon , faire en sorte d'ouvrir le fichier depuis le software puis de l'analyser
         s.save_to_file("/home/marc/testLogic/test2.logicdata")
