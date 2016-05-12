@@ -4,7 +4,7 @@
 
 from tkinter import *
 from FramePerso import *
-from saleae import *  # use saleae analyser
+from saleae import saleae  # use saleae analyser
 import traceback
 
 
@@ -149,13 +149,13 @@ class SendSaleaeButton:
             if len(digital) > 0:
                 channels = [trig for w in digital]
                 print(channels)
-                s.set_triggers_for_all_channels(channels)
+               # s.set_triggers_for_all_channels(channels)
         except s.ImpossibleSettings:
             print("Could not set Trigger")
         except s.CommandNAKedError as e:
             #e = traceback.format_exc()
             #print(e)
-            print("FIX THIS BUG ")
+            print("FIX THISexport BUG ")
 
         print("TIGGER set to : {} ".format(trig))
 
@@ -173,5 +173,5 @@ class SendSaleaeButton:
         s.capture_start_and_wait_until_finished()  #start capture and wait
 
         #need to export datas and treat them
-        #s.export_data("/home/marc/testLogic/test")
-        s.save_to_file("/home/marc/testLogic/test2")
+        s.export_data("/home/marc/testLogic/test", [0, 1], format='VCD')
+        s.save_to_file("/home/marc/testLogic/test2.logicdata")
