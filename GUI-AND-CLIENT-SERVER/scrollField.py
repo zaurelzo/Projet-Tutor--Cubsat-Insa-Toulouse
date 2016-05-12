@@ -7,6 +7,13 @@ from FramePerso import *
 
 
 class scrollField:
+    
+    ##
+    #scrollfield constructor
+    #@param name  :window's name
+    #@param window : main window
+    #@param position : scrollfied
+    #@param listOption : list option to draw 
     def __init__(self, name,window,position,listOption):
         # choix du protocole
         self.OPTIONS = listOption
@@ -24,6 +31,8 @@ class scrollField:
         self.label.pack(side=position)	
         self.w.pack(side=position,padx=5,pady=1)
 
+    ##
+    #@return current value of the choice 
     def getChoice(self):
         return self.variable.get()
 

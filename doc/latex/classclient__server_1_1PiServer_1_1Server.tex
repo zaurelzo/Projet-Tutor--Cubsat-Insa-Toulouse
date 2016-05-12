@@ -1,0 +1,73 @@
+\hypertarget{classclient__server_1_1PiServer_1_1Server}{\section{client\+\_\+server.\+Pi\+Server.\+Server Class Reference}
+\label{classclient__server_1_1PiServer_1_1Server}\index{client\+\_\+server.\+Pi\+Server.\+Server@{client\+\_\+server.\+Pi\+Server.\+Server}}
+}
+
+
+This is the server which waits for connection with the client and accepts the transmitted commands.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classclient__server_1_1PiServer_1_1Server_a8c4e6a11ae8ad930a9bbf6bd911b4b92}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classclient__server_1_1PiServer_1_1Server_a0419b922bca7db903b12e80a7d524c86}{listen}
+\begin{DoxyCompactList}\small\item\em Starts up the server and waits for connection of a client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classclient__server_1_1PiServer_1_1Server_ad0460abeaacd622d0ae054bbcfb16615}{{\bfseries sock}}\label{classclient__server_1_1PiServer_1_1Server_ad0460abeaacd622d0ae054bbcfb16615}
+
+\item 
+\hypertarget{classclient__server_1_1PiServer_1_1Server_a59b0ca6049e6dc777b7aaf636b52e61e}{{\bfseries server\+\_\+address}}\label{classclient__server_1_1PiServer_1_1Server_a59b0ca6049e6dc777b7aaf636b52e61e}
+
+\item 
+\hypertarget{classclient__server_1_1PiServer_1_1Server_ad307f8055443426237ef1d7287231245}{{\bfseries message\+\_\+queue}}\label{classclient__server_1_1PiServer_1_1Server_ad307f8055443426237ef1d7287231245}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the server which waits for connection with the client and accepts the transmitted commands. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classclient__server_1_1PiServer_1_1Server_a8c4e6a11ae8ad930a9bbf6bd911b4b92}{\index{client\+\_\+server\+::\+Pi\+Server\+::\+Server@{client\+\_\+server\+::\+Pi\+Server\+::\+Server}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!client\+\_\+server\+::\+Pi\+Server\+::\+Server@{client\+\_\+server\+::\+Pi\+Server\+::\+Server}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def client\+\_\+server.\+Pi\+Server.\+Server.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{port, }
+\item[{}]{message\+\_\+queue}
+\end{DoxyParamCaption}
+)}}\label{classclient__server_1_1PiServer_1_1Server_a8c4e6a11ae8ad930a9bbf6bd911b4b92}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \hyperlink{classclient__server_1_1PiServer_1_1Server}{Server} name or ip \\
+\hline
+{\em port} & Port on which the server should be opened \\
+\hline
+{\em message\+\_\+queue} & Synchronized message queue to communicate which the Serial\+Sender class \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classclient__server_1_1PiServer_1_1Server_a0419b922bca7db903b12e80a7d524c86}{\index{client\+\_\+server\+::\+Pi\+Server\+::\+Server@{client\+\_\+server\+::\+Pi\+Server\+::\+Server}!listen@{listen}}
+\index{listen@{listen}!client\+\_\+server\+::\+Pi\+Server\+::\+Server@{client\+\_\+server\+::\+Pi\+Server\+::\+Server}}
+\subsubsection[{listen}]{\setlength{\rightskip}{0pt plus 5cm}def client\+\_\+server.\+Pi\+Server.\+Server.\+listen (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classclient__server_1_1PiServer_1_1Server_a0419b922bca7db903b12e80a7d524c86}
+
+
+Starts up the server and waits for connection of a client. 
+
+Incoming message are saved in the message queue. The actual sending of the packets is done by another thread from the Serial\+Sender class. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/marc/repositories/cubesat\+Git/\+Projet-\/\+Tutore-\/\+Cubsat-\/\+Insa-\/\+Toulouse/\+G\+U\+I-\/\+A\+N\+D-\/\+C\+L\+I\+E\+N\+T-\/\+S\+E\+R\+V\+E\+R/client\+\_\+server/Pi\+Server.\+py\end{DoxyCompactItemize}

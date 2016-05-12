@@ -1,0 +1,82 @@
+\hypertarget{classclient__server_1_1SerialSender_1_1SerialSender}{\section{client\+\_\+server.\+Serial\+Sender.\+Serial\+Sender Class Reference}
+\label{classclient__server_1_1SerialSender_1_1SerialSender}\index{client\+\_\+server.\+Serial\+Sender.\+Serial\+Sender@{client\+\_\+server.\+Serial\+Sender.\+Serial\+Sender}}
+}
+
+
+This class runs a thread which sends the serial packets.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classclient__server_1_1SerialSender_1_1SerialSender_ad7434beefc94829291a179987cefe283}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\begin{DoxyCompactList}\small\item\em Tries to use the tty\+A\+M\+A0 connection. \end{DoxyCompactList}\item 
+def \hyperlink{classclient__server_1_1SerialSender_1_1SerialSender_a18db9998870e82f1062392cf041e4b62}{run}
+\begin{DoxyCompactList}\small\item\em The thread function which sends the packets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classclient__server_1_1SerialSender_1_1SerialSender_a0e3dc9a4170c85ee5ffd371ca667296e}{{\bfseries message\+\_\+queue}}\label{classclient__server_1_1SerialSender_1_1SerialSender_a0e3dc9a4170c85ee5ffd371ca667296e}
+
+\item 
+\hypertarget{classclient__server_1_1SerialSender_1_1SerialSender_aba7a9a371d64637dc27fa551907e9ee9}{{\bfseries port}}\label{classclient__server_1_1SerialSender_1_1SerialSender_aba7a9a371d64637dc27fa551907e9ee9}
+
+\item 
+\hypertarget{classclient__server_1_1SerialSender_1_1SerialSender_a682bff898f8e21996281ee32d62a4a26}{{\bfseries debug}}\label{classclient__server_1_1SerialSender_1_1SerialSender_a682bff898f8e21996281ee32d62a4a26}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class runs a thread which sends the serial packets. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classclient__server_1_1SerialSender_1_1SerialSender_ad7434beefc94829291a179987cefe283}{\index{client\+\_\+server\+::\+Serial\+Sender\+::\+Serial\+Sender@{client\+\_\+server\+::\+Serial\+Sender\+::\+Serial\+Sender}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!client\+\_\+server\+::\+Serial\+Sender\+::\+Serial\+Sender@{client\+\_\+server\+::\+Serial\+Sender\+::\+Serial\+Sender}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def client\+\_\+server.\+Serial\+Sender.\+Serial\+Sender.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{message\+\_\+queue}
+\end{DoxyParamCaption}
+)}}\label{classclient__server_1_1SerialSender_1_1SerialSender_ad7434beefc94829291a179987cefe283}
+
+
+Tries to use the tty\+A\+M\+A0 connection. 
+
+If it is not availible the class will run in a debug mode which is not actually sending packages.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message\+\_\+queue} & The synchronized message queue to communicate with the Server class \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classclient__server_1_1SerialSender_1_1SerialSender_a18db9998870e82f1062392cf041e4b62}{\index{client\+\_\+server\+::\+Serial\+Sender\+::\+Serial\+Sender@{client\+\_\+server\+::\+Serial\+Sender\+::\+Serial\+Sender}!run@{run}}
+\index{run@{run}!client\+\_\+server\+::\+Serial\+Sender\+::\+Serial\+Sender@{client\+\_\+server\+::\+Serial\+Sender\+::\+Serial\+Sender}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}def client\+\_\+server.\+Serial\+Sender.\+Serial\+Sender.\+run (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args, }
+\item[{}]{args2}
+\end{DoxyParamCaption}
+)}}\label{classclient__server_1_1SerialSender_1_1SerialSender_a18db9998870e82f1062392cf041e4b62}
+
+
+The thread function which sends the packets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Not used, only needed because of python standards \\
+\hline
+{\em args2} & Not used, only needed because of python standards \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/marc/repositories/cubesat\+Git/\+Projet-\/\+Tutore-\/\+Cubsat-\/\+Insa-\/\+Toulouse/\+G\+U\+I-\/\+A\+N\+D-\/\+C\+L\+I\+E\+N\+T-\/\+S\+E\+R\+V\+E\+R/client\+\_\+server/Serial\+Sender.\+py\end{DoxyCompactItemize}

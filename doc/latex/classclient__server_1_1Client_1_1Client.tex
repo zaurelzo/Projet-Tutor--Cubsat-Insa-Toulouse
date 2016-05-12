@@ -1,0 +1,108 @@
+\hypertarget{classclient__server_1_1Client_1_1Client}{\section{client\+\_\+server.\+Client.\+Client Class Reference}
+\label{classclient__server_1_1Client_1_1Client}\index{client\+\_\+server.\+Client.\+Client@{client\+\_\+server.\+Client.\+Client}}
+}
+
+
+This client transmits commands from the G\+U\+I to the server.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classclient__server_1_1Client_1_1Client_a8cb4c2c473ea08646175c2b74d748f61}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classclient__server_1_1Client_1_1Client_a1b7f816b79f1c40420a38855193a4c4a}{connect}
+\begin{DoxyCompactList}\small\item\em Establishes the connection to the server. \end{DoxyCompactList}\item 
+def \hyperlink{classclient__server_1_1Client_1_1Client_a9dafb6ebf8664a9b23e85ee425d93601}{send\+\_\+message}
+\begin{DoxyCompactList}\small\item\em Sends the passed values to the connected server. \end{DoxyCompactList}\item 
+def \hyperlink{classclient__server_1_1Client_1_1Client_a926560513b0d2f136783d4b4b26018b7}{close\+\_\+socket}
+\begin{DoxyCompactList}\small\item\em Closes the connection to the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classclient__server_1_1Client_1_1Client_a578c283509dddd4ac22ba9492598083e}{{\bfseries sock}}\label{classclient__server_1_1Client_1_1Client_a578c283509dddd4ac22ba9492598083e}
+
+\item 
+\hypertarget{classclient__server_1_1Client_1_1Client_aad76961c6ae3d54749a934be5540115b}{{\bfseries server\+\_\+address}}\label{classclient__server_1_1Client_1_1Client_aad76961c6ae3d54749a934be5540115b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This client transmits commands from the G\+U\+I to the server. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classclient__server_1_1Client_1_1Client_a8cb4c2c473ea08646175c2b74d748f61}{\index{client\+\_\+server\+::\+Client\+::\+Client@{client\+\_\+server\+::\+Client\+::\+Client}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!client\+\_\+server\+::\+Client\+::\+Client@{client\+\_\+server\+::\+Client\+::\+Client}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def client\+\_\+server.\+Client.\+Client.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{port}
+\end{DoxyParamCaption}
+)}}\label{classclient__server_1_1Client_1_1Client_a8cb4c2c473ea08646175c2b74d748f61}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name can either be a hostname or an ip address \\
+\hline
+{\em port} & The port on which the server is running. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classclient__server_1_1Client_1_1Client_a926560513b0d2f136783d4b4b26018b7}{\index{client\+\_\+server\+::\+Client\+::\+Client@{client\+\_\+server\+::\+Client\+::\+Client}!close\+\_\+socket@{close\+\_\+socket}}
+\index{close\+\_\+socket@{close\+\_\+socket}!client\+\_\+server\+::\+Client\+::\+Client@{client\+\_\+server\+::\+Client\+::\+Client}}
+\subsubsection[{close\+\_\+socket}]{\setlength{\rightskip}{0pt plus 5cm}def client\+\_\+server.\+Client.\+Client.\+close\+\_\+socket (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classclient__server_1_1Client_1_1Client_a926560513b0d2f136783d4b4b26018b7}
+
+
+Closes the connection to the server. 
+
+\hypertarget{classclient__server_1_1Client_1_1Client_a1b7f816b79f1c40420a38855193a4c4a}{\index{client\+\_\+server\+::\+Client\+::\+Client@{client\+\_\+server\+::\+Client\+::\+Client}!connect@{connect}}
+\index{connect@{connect}!client\+\_\+server\+::\+Client\+::\+Client@{client\+\_\+server\+::\+Client\+::\+Client}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}def client\+\_\+server.\+Client.\+Client.\+connect (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classclient__server_1_1Client_1_1Client_a1b7f816b79f1c40420a38855193a4c4a}
+
+
+Establishes the connection to the server. 
+
+\begin{DoxyReturn}{Returns}
+True if connected, False if an error occured 
+\end{DoxyReturn}
+\hypertarget{classclient__server_1_1Client_1_1Client_a9dafb6ebf8664a9b23e85ee425d93601}{\index{client\+\_\+server\+::\+Client\+::\+Client@{client\+\_\+server\+::\+Client\+::\+Client}!send\+\_\+message@{send\+\_\+message}}
+\index{send\+\_\+message@{send\+\_\+message}!client\+\_\+server\+::\+Client\+::\+Client@{client\+\_\+server\+::\+Client\+::\+Client}}
+\subsubsection[{send\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}def client\+\_\+server.\+Client.\+Client.\+send\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{packet\+\_\+number, }
+\item[{}]{protocol, }
+\item[{}]{time}
+\end{DoxyParamCaption}
+)}}\label{classclient__server_1_1Client_1_1Client_a9dafb6ebf8664a9b23e85ee425d93601}
+
+
+Sends the passed values to the connected server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet\+\_\+number} & Number of serials packets that should be sended \\
+\hline
+{\em protocol} & Type of serial protocol. Defined in the Pi\+Server class. \\
+\hline
+{\em time} & time between sending of the serial packets. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/marc/repositories/cubesat\+Git/\+Projet-\/\+Tutore-\/\+Cubsat-\/\+Insa-\/\+Toulouse/\+G\+U\+I-\/\+A\+N\+D-\/\+C\+L\+I\+E\+N\+T-\/\+S\+E\+R\+V\+E\+R/client\+\_\+server/Client.\+py\end{DoxyCompactItemize}

@@ -8,6 +8,12 @@ import sys
 class EntryText:
     """class for input user """
 
+    ##
+    #entryText constructor
+    #@param name : window's name
+    #@param window : main window
+    #@param text : indicative action tex
+    #@param *marge: optional 2 parameter for the marge around text  
     def __init__(self, name, window, text,position,*marge):
 
         #self.type = type  # 0 :IP, 1:Port
@@ -25,12 +31,16 @@ class EntryText:
         self.champ.pack(side=position, padx=self.x, pady=self.y)
         self.value = result.get()  #bidouille
 
+    ##
+    #@return current field value
     def get_value(self):
         return self.champ.get()
 
     #def get_type(sealf):
         #return self.type
 
+    ##
+    #@return interger conversion of current field value
     def get_int_value(self):
         try:
             re = int(self.champ.get())
@@ -39,12 +49,17 @@ class EntryText:
             print("Please enter only numbers in the packet number field", file=sys.stderr)
             return -1
 
-
+    ##
+    #hide the field zone
     def hide(self):
         self.champ.pack_forget()
 
+    ##
+    #show the filed zone
     def show(self):
         self.champ.pack(side=self.position, padx=self.x, pady=self.y)
 
+    ##
+    #set up the field zone to not be editable 
     def notEditable(self):
         self.champ.config(state=DISABLED)

@@ -5,7 +5,15 @@ from FramePerso import *
 
 
 class SpinboxClass:
-	"""docstring for SpinboxClass"""
+	##
+	#spinbox contructor 
+	#@param name  :window's name
+    #@param window : main window
+    #@param minValue : minimum value for the spinbox text field
+    #@param maxValue : mmaximu value for the spinbox text field
+    #@param postion : spinbox position
+    #@param margex : marge for x axis
+    #@param margey : marge for y axis
 	def __init__(self, name,window,minValue,maxValue,position,margex,margey):
 		self.name=name
 		self.maxValue=maxValue
@@ -20,19 +28,23 @@ class SpinboxClass:
 		self.label.pack(side=position)
 		self.spin.pack(side=position,padx=margex,pady=margey)
 
-
+	##
+	#return current spinbox value
 	def getValue(self):
 		return int(self.spin.get())
-
+	##
+	#hide the spinbox
 	def hide(self):
 		self.label.pack_forget()
 		self.spin.pack_forget()
 
+	##show the spinbox
 	def show(self):
 		self.label.pack(side=self.position)
 		self.spin.pack(side=self.position)
 		
-
+	##
+	#change spinbox min and max value 
 	def changeConfig(self,min,max):
 		self.spin.config(from_=min,to=max)
 
