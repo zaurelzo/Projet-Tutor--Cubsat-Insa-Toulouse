@@ -1,18 +1,22 @@
 \hypertarget{classButon_1_1SendButton}{\section{Buton.\+Send\+Button Class Reference}
 \label{classButon_1_1SendButton}\index{Buton.\+Send\+Button@{Buton.\+Send\+Button}}
 }
+
+
+This class represents the send button for packets in the G\+U\+I.  
+
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classButon_1_1SendButton_aa12b6257598cbc8304a993fbcf0d85ec}{def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+}}\label{classButon_1_1SendButton_aa12b6257598cbc8304a993fbcf0d85ec}
+def \hyperlink{classButon_1_1SendButton_aa12b6257598cbc8304a993fbcf0d85ec}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\begin{DoxyCompactList}\small\item\em send\+Button \end{DoxyCompactList}\item 
+\hypertarget{classButon_1_1SendButton_ac35254e6f2349696284a95a28082897c}{def \hyperlink{classButon_1_1SendButton_ac35254e6f2349696284a95a28082897c}{send}}\label{classButon_1_1SendButton_ac35254e6f2349696284a95a28082897c}
 
-\item 
-\hypertarget{classButon_1_1SendButton_ac35254e6f2349696284a95a28082897c}{def {\bfseries send}}\label{classButon_1_1SendButton_ac35254e6f2349696284a95a28082897c}
+\begin{DoxyCompactList}\small\item\em send send protocol configuration to the raspberry \end{DoxyCompactList}\item 
+\hypertarget{classButon_1_1SendButton_a0f5cea8750fe292811dc28bbeb87b24b}{def \hyperlink{classButon_1_1SendButton_a0f5cea8750fe292811dc28bbeb87b24b}{show}}\label{classButon_1_1SendButton_a0f5cea8750fe292811dc28bbeb87b24b}
 
-\item 
-\hypertarget{classButon_1_1SendButton_a0f5cea8750fe292811dc28bbeb87b24b}{def {\bfseries show}}\label{classButon_1_1SendButton_a0f5cea8750fe292811dc28bbeb87b24b}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em show the button if it is hiding \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,8 +41,43 @@
 
 
 \subsection{Detailed Description}
-\begin{DoxyVerb}class for a Button\end{DoxyVerb}
- 
+This class represents the send button for packets in the G\+U\+I. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classButon_1_1SendButton_aa12b6257598cbc8304a993fbcf0d85ec}{\index{Buton\+::\+Send\+Button@{Buton\+::\+Send\+Button}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!Buton\+::\+Send\+Button@{Buton\+::\+Send\+Button}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def Buton.\+Send\+Button.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{window, }
+\item[{}]{entry\+\_\+field\+\_\+number\+\_\+of\+\_\+packet, }
+\item[{}]{entry\+\_\+field\+\_\+time\+\_\+of\+\_\+packet, }
+\item[{}]{config, }
+\item[{}]{scroll\+\_\+choice, }
+\item[{}]{position}
+\end{DoxyParamCaption}
+)}}\label{classButon_1_1SendButton_aa12b6257598cbc8304a993fbcf0d85ec}
+
+
+send\+Button 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & window's name \\
+\hline
+{\em window} & main window \\
+\hline
+{\em entry\+\_\+field\+\_\+number\+\_\+of\+\_\+packet} & field for number of packets \\
+\hline
+{\em entry\+\_\+field\+\_\+time\+\_\+of\+\_\+packet} & field for time between packet \\
+\hline
+{\em config} & server configuration object \\
+\hline
+{\em scroll\+\_\+choice} & field for protocol choice (ie uart, spic, i2c) \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

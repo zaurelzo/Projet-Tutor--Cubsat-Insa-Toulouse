@@ -7,9 +7,9 @@
 
 var indexSectionsWithContent =
 {
-  0: "_bceflrs",
+  0: "_bcdefghilnrs",
   1: "bcefs",
-  2: "_clrs"
+  2: "_cdghilnrs"
 };
 
 var indexSectionNames =

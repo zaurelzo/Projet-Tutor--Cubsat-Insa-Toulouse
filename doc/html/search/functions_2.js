@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['listen',['listen',['../classclient__server_1_1PiServer_1_1Server.html#a0419b922bca7db903b12e80a7d524c86',1,'client_server::PiServer::Server']]]
+  ['disconnect',['disconnect',['../classButon_1_1ConnectButon.html#ab65e33859d27de3b86b9863a058c7984',1,'Buton.ConnectButon.disconnect()'],['../classConfigurationServer_1_1ConfigurationServer.html#a8ab0622b99df3c11d191e307ba3dc691',1,'ConfigurationServer.ConfigurationServer.disconnect()']]]
 ];

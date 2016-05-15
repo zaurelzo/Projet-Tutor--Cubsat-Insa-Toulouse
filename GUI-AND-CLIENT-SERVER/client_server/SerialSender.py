@@ -49,7 +49,7 @@ class SerialSender:
                     if not self.debug:
                         if protocol == 0:
                             print("send UART")
-                            self.port.write(bytes("test", 'UTF-8'))
+                            self.port.write(bytes("A", 'UTF-8'))
                         elif protocol == 1:
                             print("send SPI")
                             os.system("./spidev_test -D /dev/spidev0.0")
