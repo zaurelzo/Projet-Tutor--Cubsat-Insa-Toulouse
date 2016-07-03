@@ -13,7 +13,7 @@ To be sure that our raspberry pi generates the number and type of packets that w
 a saleae Logic Analyzer.
 
 ## What you need to install 
-  Firstly download saleae software from this link : https://www.saleae.com/downloads
+  Firstly download saleae software from this link : https://www.saleae.com/downloads <br/>
   You also need to intall few libraries:
   
   ```bash
