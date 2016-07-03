@@ -9,11 +9,11 @@ Authors:
 
 For this project, we have developed a test plateform using a raspberry pi. The main goal was to be able to generate spi,uart and I2C
 packets using the raspberry pi. So whe have developed in python a GUI to remotely configure the number and type of packect to generate.
-To be sure that our raspberry pi generate the number and type of packets that we have specified, we have added to our interface a way to configure
+To be sure that our raspberry pi generates the number and type of packets that we have specified, we have added to our interface a way to configure
 a saleae Logic Analyzer.
 
 ## What you need to install 
-  Firstly download saleae software from this link :https://www.saleae.com/downloads
+  Firstly download saleae software from this link : https://www.saleae.com/downloads
   You also need to intall few libraries:
   
   ```bash
