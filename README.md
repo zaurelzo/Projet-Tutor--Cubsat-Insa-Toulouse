@@ -19,6 +19,7 @@ a saleae Logic Analyzer.
   ```bash
       sudo apt-get install python3-tk #install tkinter library
       sudo pip3 install saleae #library to use saleae api
+  ```
 
 ## To run
 
