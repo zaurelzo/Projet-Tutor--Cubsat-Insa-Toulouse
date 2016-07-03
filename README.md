@@ -1,5 +1,5 @@
 # Projet-Tutore-Cubsat-Insa-Toulouse
-An test platform using a raspberry pi
+Prototype of a test platform using a raspberry pi.
 
 Authors:
  * Abdillah Ahamada
